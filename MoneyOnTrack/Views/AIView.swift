@@ -76,7 +76,7 @@ struct AIView: View {
                     }//HStack
                
             }//VStack
-            .navigationBarTitle("Budget Buddy AI")
+            .navigationTitle("Budget Buddy AI")
             .MyToolbar()
         }//NavStack
     }//body

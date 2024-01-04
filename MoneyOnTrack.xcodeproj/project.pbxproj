@@ -340,6 +340,7 @@
 				04681E152B46130100CF798C /* HomeView.swift */,
 				04681E132B46130100CF798C /* MoneyTrackView.swift */,
 				04681E182B46130100CF798C /* BudgetView.swift */,
+				04681E162B46130100CF798C /* AIView.swift */,
 				04681E122B46130100CF798C /* ProfileView.swift */,
 				04681E142B46130100CF798C /* LoginView.swift */,
 				04681E112B46130100CF798C /* LoginWCredentials.swift */,
@@ -350,7 +351,6 @@
 				04681E192B46130100CF798C /* AddDetailView.swift */,
 				04681E1C2B46130100CF798C /* AddAccountView.swift */,
 				04681E0E2B46130100CF798C /* AccountDetailView.swift */,
-				04681E162B46130100CF798C /* AIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

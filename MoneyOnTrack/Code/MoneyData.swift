@@ -506,7 +506,7 @@ class Money: ObservableObject, Codable  /*,AuthenticationDelegate*/{
                 
                 if let convertedDate = self.convertStringToDate(date: date){
                     let newDataPoint = MoneyDataPoint(amount: amount, category: category, id: id, date: convertedDate , symbol: symbol, budget: budget, incomeOrExpense: incomeOrExpense)
-                    print("reached here")
+                    //print("reached here")
                     
                     if !self.data.contains(newDataPoint) {
                         self.data.append(newDataPoint)

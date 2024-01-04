@@ -15,7 +15,7 @@ struct SignupView: View {
     //@State private var isLoginViewPresented = false // Add a state variable to track whether to present the LoginView
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 30) {
                 Text("Sign Up to Money on Track")
                     .bold()

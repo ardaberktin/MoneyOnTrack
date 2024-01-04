@@ -33,7 +33,7 @@ struct MoneyTrackView: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 //.padding()
             }
-            .MyToolbar()
+            //.MyToolbar()
         }
         .refreshable {
             // Your refresh logic here

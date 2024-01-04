@@ -13,36 +13,38 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack{
-            ScrollView{
-                VStack{
-                    Text("Monthly Spendings: $" + String(money.getTotalSpent()))
-                        .frame(maxWidth: .infinity,maxHeight:30, alignment: .leading)
-                        .padding()
-                        .font(.title.bold())
-                        .scaledToFill()
-                        .minimumScaleFactor(0.5)
-                        .lineLimit(1)
+            VStack{
+                ScrollView{
+                    VStack{
+                        Text("Monthly Spendings: $" + String(money.getTotalSpent()))
+                            .frame(maxWidth: .infinity,maxHeight:30, alignment: .leading)
+                            .padding()
+                            .font(.title.bold())
+                            .scaledToFill()
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(1)
+                        
+                        Text("Budget: $" + String(money.getTotalBudget()))
+                            .font(.title2)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading, 20)
+                        
+                        
+                        PieChart()
+                            .frame( minHeight: 400,maxHeight: .infinity, alignment: .center)
+                        
+                    }//VStack
                     
-                    Text("Budget: $" + String(money.getTotalBudget()))
-                        .font(.title2)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 20)
+                    CategoryTransacList()
+                        .environmentObject(money)
                     
-                    
-                    PieChart()
-                        .frame( minHeight: 400,maxHeight: .infinity, alignment: .center)
-
-                }//VStack
-                
-                CategoryTransacList()
-                    .environmentObject(money)
-                
-            }//ScrollView
-            .refreshable {
-                   // Your refresh logic here
-                   money.getFirebase()
-               }
-               .environmentObject(money)
+                }//ScrollView
+                .refreshable {
+                    // Your refresh logic here
+                    money.getFirebase()
+                }
+                .environmentObject(money)
+            }
             
             .navigationTitle(
                     Text(Date().formatted(.dateTime.month(.wide).day()))
