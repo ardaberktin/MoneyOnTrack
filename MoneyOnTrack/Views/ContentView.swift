@@ -42,6 +42,11 @@ struct ContentView: View {
                                     Label("Budget", systemImage: "hourglass")
                                 }.tag(2)
                             
+                            AIView()
+                                .tabItem {
+                                    Label("AI", systemImage: "bolt.horizontal.fill")
+                                }.tag(3)
+                            
                         }//tabview
                     }else {
                         LoginView()
