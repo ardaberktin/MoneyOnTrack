@@ -1,3 +1,6 @@
 # Ignore GoogleService-Info.plist
 GoogleService-Info.plist
 
+# Ignore OpenAI.swif:
+OpenAI.swift
+
