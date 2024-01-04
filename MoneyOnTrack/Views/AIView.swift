@@ -12,6 +12,7 @@ struct AIView: View {
     @State private var promttf = ""
     @State private var Answer = ""
     let theopenaiclass = OpenAIConnector()
+    @State private var isEditing = false
     
     init(){
         _messages = State(initialValue: [ChatMessage(id: UUID(), content: "How can I help you today?", role: .assistant)])
@@ -34,11 +35,17 @@ struct AIView: View {
 //                            .frame(height: 70)
                         
                         HStack{
-                            TextField("Question", text: $promttf, axis: .vertical)
-                                .textFieldStyle(.roundedBorder)
-                                .lineLimit(5)
-                                .background(Color.white)
-                                .border(Color.gray)
+                            TextField("Question", text: $promttf, onEditingChanged: { editing in
+                                isEditing = editing
+                            })
+                            .textFieldStyle(.roundedBorder)
+                            .lineLimit(5)
+                            .background(Color.white)
+                            .border(Color.gray)
+                            .onTapGesture {
+                                // Make the TextField first responder when tapped
+                                isEditing = true
+                            }
                       
                             
                             Button(action: {
@@ -52,6 +59,10 @@ struct AIView: View {
                             }
                         }
                         .padding()
+                        // Dismiss the keyboard when tapped outside the TextField
+                        .onTapGesture {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        }
                             
                         }//ZStack
                             
