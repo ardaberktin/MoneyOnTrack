@@ -48,7 +48,7 @@ struct AccountList: View {
                                         Spacer()
                                         
                                         if(totalAmount < 0){
-                                            Text("-$\(totalAmount, specifier: "%.1f")")
+                                            Text("-$\(totalAmount * -1, specifier: "%.1f")")
                                                 .bold()
                                                 .font(.title3)
                                                 .foregroundColor(.red)
@@ -62,7 +62,7 @@ struct AccountList: View {
                                     .padding(.all, 25)
                                     .foregroundColor(.black) //so that the text doesn't disappear in dark mode
                                     .background(.white)
-                                    .cornerRadius(30)
+                                    .cornerRadius(15)
                                     .shadow(radius: 10)
                                     
                                 }//VStack

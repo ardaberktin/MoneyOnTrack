@@ -14,7 +14,7 @@ struct MoneyTrackView: View {
                         NetWorthCard()
                         AccountList()
                     }
-                    .padding()
+//                    .padding()
                 }
                 
                 // Add Category Button
@@ -31,7 +31,7 @@ struct MoneyTrackView: View {
                     AddAccountView()
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding()
+                //.padding()
             }
             .MyToolbar()
         }

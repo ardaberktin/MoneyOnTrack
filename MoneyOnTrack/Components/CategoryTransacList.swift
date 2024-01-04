@@ -61,7 +61,7 @@ struct CategoryTransacList: View {
                                     .padding(.all, 25)
                                     .foregroundColor(.black) //so that the text doesn't disappear in dark mode
                                     .background(.white)
-                                    .cornerRadius(30)
+                                    .cornerRadius(15)
                                     .shadow(radius: 10)
                                     
                                 }//VStack

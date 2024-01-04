@@ -9,22 +9,30 @@ struct NetWorthCard: View {
             Text("Net Worth")
                 .font(.title)
                 .fontWeight(.bold)
-                //.foregroundColor(.blue)
+                .foregroundColor(.black)
 
                 
             let netWorth = moneyTrack.getNetWorth()
             
-            Text("$\(netWorth, specifier: "%.2f")")
-                .font(.system(size: 36))
-                .fontWeight(.bold)
-                .foregroundColor(netWorth >= 0 ? .blue : .red)
-                .padding(.vertical, 8)
+            if(netWorth >= 0){
+                Text("$\(netWorth, specifier: "%.2f")")
+                    .font(.system(size: 36))
+                    .fontWeight(.bold)
+                    .foregroundColor(netWorth >= 0 ? .blue : .red)
+                    .padding(.vertical, 8)
+            }else{
+                Text("-$\(netWorth * -1, specifier: "%.2f")")
+                    .font(.system(size: 36))
+                    .fontWeight(.bold)
+                    .foregroundColor(netWorth >= 0 ? .blue : .red)
+                    .padding(.vertical, 8)
+            }
 
             HStack {
                 VStack {
                     Text("Assets")
                         .font(.subheadline)
-                        //.foregroundColor(.blue)
+                        .foregroundColor(.black)
                     Text("$\(moneyTrack.getTotalAssets(), specifier: "%.2f")")
                         .font(.subheadline)
                         .foregroundColor(.green)
@@ -36,7 +44,7 @@ struct NetWorthCard: View {
                 VStack {
                     Text("Liabilities")
                         .font(.subheadline)
-                        //.foregroundColor(.blue)
+                        .foregroundColor(.black)
                     if(moneyTrack.getTotalLiab() != 0){
                         Text("-$\(moneyTrack.getTotalLiab() * -1, specifier: "%.2f")")
                             .font(.subheadline)

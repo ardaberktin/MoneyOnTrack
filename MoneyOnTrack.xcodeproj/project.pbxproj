@@ -127,6 +127,7 @@
 		04681E2B2B46130100CF798C /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04681E1C2B46130100CF798C /* AddAccountView.swift */; };
 		04681E2E2B46134F00CF798C /* SFSymbolsPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 04681E2D2B46134F00CF798C /* SFSymbolsPicker */; };
 		04681E302B461F3800CF798C /* CategoryCardsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04681E2F2B461F3800CF798C /* CategoryCardsList.swift */; };
+		04681E322B465C9800CF798C /* OpenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04681E312B465C9800CF798C /* OpenAI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +165,7 @@
 		04681E1B2B46130100CF798C /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		04681E1C2B46130100CF798C /* AddAccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
 		04681E2F2B461F3800CF798C /* CategoryCardsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardsList.swift; sourceTree = "<group>"; };
+		04681E312B465C9800CF798C /* OpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +311,7 @@
 				04681D502B45829000CF798C /* MoneyData.swift */,
 				04681D4C2B45829000CF798C /* MoneyTrackData.swift */,
 				04681D4D2B45829000CF798C /* UserInfo.swift */,
+				04681E312B465C9800CF798C /* OpenAI.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				04681D552B45829000CF798C /* MoneyData.swift in Sources */,
 				04681D542B45829000CF798C /* AuthenticationManager.swift in Sources */,
 				04681E282B46130100CF798C /* AddDetailView.swift in Sources */,
+				04681E322B465C9800CF798C /* OpenAI.swift in Sources */,
 				04681E222B46130100CF798C /* MoneyTrackView.swift in Sources */,
 				04681E1E2B46130100CF798C /* AddView.swift in Sources */,
 				04681E0B2B4612F700CF798C /* PieChart.swift in Sources */,
