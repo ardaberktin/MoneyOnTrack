@@ -42,12 +42,21 @@ struct AIView: View {
 //                            isEditing = editing
 //                        })
                         HStack{
-                            TextField("Question", text: $promttf, axis: .vertical)
-                                .focused($isEditing)
-                                .textFieldStyle(.roundedBorder)
-                                .lineLimit(5)
-                                .background(Color.white)
-                                .border(Color.gray)
+                            VStack(alignment: .trailing){
+                                TextField("Question", text: $promttf, axis: .vertical)
+                                    .focused($isEditing)
+                                    .textFieldStyle(.roundedBorder)
+                                    .lineLimit(5)
+                                    .background(Color.white)
+                                    .border(Color.gray)
+                                    .onChange(of: promttf){ old, new in
+                                        limitTextFieldLength()
+                                    }
+                                
+                                Text(String(promttf.count) + " / 250")
+                                    .foregroundColor(Color.gray)
+                                    .font(.caption)
+                            }
                       
                             
                             Button(action: {
@@ -71,6 +80,12 @@ struct AIView: View {
             .MyToolbar()
         }//NavStack
     }//body
+    
+    private func limitTextFieldLength() {
+        if promttf.count > 250 {
+            promttf = String(promttf.prefix(250))
+        }
+    }
     
     private func sendMessage() {
             if !promttf.isEmpty {

@@ -39,7 +39,7 @@ struct ContentView: View {
                             
                             BudgetView()
                                 .tabItem {
-                                    Label("Budget", systemImage: "hourglass")
+                                    Label("Budget", systemImage: "chart.bar.fill")
                                 }.tag(2)
                             
                             AIView()
