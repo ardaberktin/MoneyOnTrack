@@ -12,7 +12,7 @@ struct AIView: View {
     @State private var promttf = ""
     @State private var Answer = ""
     let theopenaiclass = OpenAIConnector()
-    @State private var isEditing = false
+    @FocusState private var isEditing: Bool
     
     init(){
         _messages = State(initialValue: [ChatMessage(id: UUID(), content: "How can I help you today?", role: .assistant)])
@@ -27,6 +27,10 @@ struct AIView: View {
                             .padding(.horizontal)
                     }
                 }
+                .onTapGesture {
+                    // Make the TextField first responder when tapped
+                    isEditing = false
+                }
                 
                 HStack {
                     ZStack {
@@ -34,18 +38,16 @@ struct AIView: View {
 //                            .foregroundColor(Color(.systemGray5))
 //                            .frame(height: 70)
                         
+//                        TextField("Question", text: $promttf, onEditingChanged: { editing in
+//                            isEditing = editing
+//                        })
                         HStack{
-                            TextField("Question", text: $promttf, onEditingChanged: { editing in
-                                isEditing = editing
-                            })
-                            .textFieldStyle(.roundedBorder)
-                            .lineLimit(5)
-                            .background(Color.white)
-                            .border(Color.gray)
-                            .onTapGesture {
-                                // Make the TextField first responder when tapped
-                                isEditing = true
-                            }
+                            TextField("Question", text: $promttf, axis: .vertical)
+                                .focused($isEditing)
+                                .textFieldStyle(.roundedBorder)
+                                .lineLimit(5)
+                                .background(Color.white)
+                                .border(Color.gray)
                       
                             
                             Button(action: {
@@ -59,17 +61,13 @@ struct AIView: View {
                             }
                         }
                         .padding()
-                        // Dismiss the keyboard when tapped outside the TextField
-                        .onTapGesture {
-                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        }
                             
                         }//ZStack
                             
                     }//HStack
                
             }//VStack
-            .navigationBarTitle("Chat with AI")
+            .navigationBarTitle("Budget Buddy AI")
             .MyToolbar()
         }//NavStack
     }//body
