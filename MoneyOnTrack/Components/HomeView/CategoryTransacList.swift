@@ -9,13 +9,7 @@ import SwiftUI
 
 struct CategoryTransacList: View {
     @EnvironmentObject var money: Money
-    
-//    var data = [
-//        EmptyData(amount: 100, category: "Travel"),
-//        EmptyData(amount: 200, category: "Shopping"),
-//        EmptyData(amount: 300, category: "Health")
-//    ]
-//    
+
     var body: some View {
         
         VStack{

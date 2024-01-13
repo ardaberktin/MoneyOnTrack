@@ -41,7 +41,7 @@ struct AIView: View {
 //                        TextField("Question", text: $promttf, onEditingChanged: { editing in
 //                            isEditing = editing
 //                        })
-                        HStack{
+                        HStack(alignment: .top){
                             VStack(alignment: .trailing){
                                 TextField("Question", text: $promttf, axis: .vertical)
                                     .focused($isEditing)
@@ -51,12 +51,12 @@ struct AIView: View {
                                     .border(Color.gray)
                                     .onChange(of: promttf){ old, new in
                                         limitTextFieldLength()
-                                    }
+                                    }//onChange
                                 
                                 Text(String(promttf.count) + " / 250")
                                     .foregroundColor(Color.gray)
                                     .font(.caption)
-                            }
+                            }//VStack
                       
                             
                             Button(action: {
@@ -67,8 +67,8 @@ struct AIView: View {
                                     .frame(width: 30, height: 30)
                                     .foregroundColor(.blue)
                                     .padding(.trailing)
-                            }
-                        }
+                            }//Button
+                        }//HStack
                         .padding()
                             
                         }//ZStack
@@ -84,8 +84,8 @@ struct AIView: View {
     private func limitTextFieldLength() {
         if promttf.count > 250 {
             promttf = String(promttf.prefix(250))
-        }
-    }
+        }//if
+    }//func
     
     private func sendMessage() {
             if !promttf.isEmpty {
@@ -104,7 +104,7 @@ struct AIView: View {
                     // Remove the "typing" message
                     if let index = messages.firstIndex(where: { $0.id == typingMessage.id }) {
                         messages.remove(at: index)
-                    }
+                    }//if let
 
                     // Get the actual AI response
                     self.Answer = self.theopenaiclass.processPrompt(prompt: "\(userMessage.content)") ?? "Error: No answer available"
@@ -112,11 +112,11 @@ struct AIView: View {
                     // Add the AI response
                     let aiMessage = ChatMessage(id: UUID(), content: self.Answer, role: .assistant)
                     messages.append(aiMessage)
-                }
+                }//dispatch
             } else {
                 Answer = "Error: Empty prompt"
-            }
-        }
+            }//else
+        }//func
 
 }//struct
 

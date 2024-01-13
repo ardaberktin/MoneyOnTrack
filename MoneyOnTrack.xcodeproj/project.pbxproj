@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043A41F82B52A5F600BF5824 /* BudgetMarkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A41F72B52A5F600BF5824 /* BudgetMarkCard.swift */; };
+		043A41FA2B52AEF700BF5824 /* CategoryBudgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A41F92B52AEF700BF5824 /* CategoryBudgets.swift */; };
+		043A41FC2B52BF1500BF5824 /* CategoryBudgetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A41FB2B52BF1500BF5824 /* CategoryBudgetList.swift */; };
 		04681D312B45817E00CF798C /* MoneyOnTrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04681D302B45817E00CF798C /* MoneyOnTrackApp.swift */; };
 		04681D352B45817F00CF798C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04681D342B45817F00CF798C /* Assets.xcassets */; };
 		04681D382B45817F00CF798C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04681D372B45817F00CF798C /* Preview Assets.xcassets */; };
@@ -131,6 +134,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		043A41F72B52A5F600BF5824 /* BudgetMarkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetMarkCard.swift; sourceTree = "<group>"; };
+		043A41F92B52AEF700BF5824 /* CategoryBudgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBudgets.swift; sourceTree = "<group>"; };
+		043A41FB2B52BF1500BF5824 /* CategoryBudgetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBudgetList.swift; sourceTree = "<group>"; };
 		04681D2D2B45817E00CF798C /* MoneyOnTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyOnTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04681D302B45817E00CF798C /* MoneyOnTrackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyOnTrackApp.swift; sourceTree = "<group>"; };
 		04681D342B45817F00CF798C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -266,6 +272,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043A41F22B52893300BF5824 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				04681E012B4612F700CF798C /* PieChart.swift */,
+				04681DFE2B4612F700CF798C /* CategoryTransacList.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		043A41F32B52898000BF5824 /* TrackVIew */ = {
+			isa = PBXGroup;
+			children = (
+				04681DFB2B4612F700CF798C /* NetWorthCard.swift */,
+				04681DFA2B4612F700CF798C /* AccountList.swift */,
+			);
+			path = TrackVIew;
+			sourceTree = "<group>";
+		};
+		043A41F42B5289B700BF5824 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				04681DFF2B4612F700CF798C /* LoginTitle.swift */,
+				04681E002B4612F700CF798C /* LoginButton.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		043A41F52B5289FF00BF5824 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				04681E022B4612F700CF798C /* CategoryCards.swift */,
+				04681E2F2B461F3800CF798C /* CategoryCardsList.swift */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		043A41F62B528DED00BF5824 /* BudgetView */ = {
+			isa = PBXGroup;
+			children = (
+				04681DFD2B4612F700CF798C /* BudgetBarkmark.swift */,
+				043A41F72B52A5F600BF5824 /* BudgetMarkCard.swift */,
+				043A41F92B52AEF700BF5824 /* CategoryBudgets.swift */,
+				043A41FB2B52BF1500BF5824 /* CategoryBudgetList.swift */,
+			);
+			path = BudgetView;
+			sourceTree = "<group>";
+		};
 		04681D242B45817E00CF798C = {
 			isa = PBXGroup;
 			children = (
@@ -320,15 +373,11 @@
 			isa = PBXGroup;
 			children = (
 				04681DF92B4612F700CF798C /* MyToolbar.swift */,
-				04681DFB2B4612F700CF798C /* NetWorthCard.swift */,
-				04681DFD2B4612F700CF798C /* BudgetBarkmark.swift */,
-				04681DFE2B4612F700CF798C /* CategoryTransacList.swift */,
-				04681DFF2B4612F700CF798C /* LoginTitle.swift */,
-				04681E002B4612F700CF798C /* LoginButton.swift */,
-				04681E012B4612F700CF798C /* PieChart.swift */,
-				04681E022B4612F700CF798C /* CategoryCards.swift */,
-				04681E2F2B461F3800CF798C /* CategoryCardsList.swift */,
-				04681DFA2B4612F700CF798C /* AccountList.swift */,
+				043A41F52B5289FF00BF5824 /* Add */,
+				043A41F22B52893300BF5824 /* HomeView */,
+				043A41F32B52898000BF5824 /* TrackVIew */,
+				043A41F62B528DED00BF5824 /* BudgetView */,
+				043A41F42B5289B700BF5824 /* Login */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -528,12 +577,14 @@
 				04681D522B45829000CF798C /* UserInfo.swift in Sources */,
 				04681E0C2B4612F700CF798C /* CategoryCards.swift in Sources */,
 				04681E232B46130100CF798C /* LoginView.swift in Sources */,
+				043A41FA2B52AEF700BF5824 /* CategoryBudgets.swift in Sources */,
 				04681E032B4612F700CF798C /* MyToolbar.swift in Sources */,
 				04681E2A2B46130100CF798C /* ContentView.swift in Sources */,
 				04681E092B4612F700CF798C /* LoginTitle.swift in Sources */,
 				04681D552B45829000CF798C /* MoneyData.swift in Sources */,
 				04681D542B45829000CF798C /* AuthenticationManager.swift in Sources */,
 				04681E282B46130100CF798C /* AddDetailView.swift in Sources */,
+				043A41F82B52A5F600BF5824 /* BudgetMarkCard.swift in Sources */,
 				04681E322B465C9800CF798C /* OpenAI.swift in Sources */,
 				04681E222B46130100CF798C /* MoneyTrackView.swift in Sources */,
 				04681E1E2B46130100CF798C /* AddView.swift in Sources */,
@@ -543,6 +594,7 @@
 				04681D512B45829000CF798C /* MoneyTrackData.swift in Sources */,
 				04681E1F2B46130100CF798C /* CategoryDetailView.swift in Sources */,
 				04681E082B4612F700CF798C /* CategoryTransacList.swift in Sources */,
+				043A41FC2B52BF1500BF5824 /* CategoryBudgetList.swift in Sources */,
 				04681E302B461F3800CF798C /* CategoryCardsList.swift in Sources */,
 				04681E292B46130100CF798C /* SignupView.swift in Sources */,
 				04681E1D2B46130100CF798C /* AccountDetailView.swift in Sources */,

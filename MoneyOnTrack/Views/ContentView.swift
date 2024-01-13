@@ -21,7 +21,7 @@ struct ContentView: View {
         
         NavigationView{
             VStack{
-                if authenticationManager.isUserLoggedIn{
+                if authenticationManager.isUserLoggedIn && authenticationManager.isAuthenticated{
                     TabView(selection: $selectedTab) {
                         
                         HomeView()
@@ -68,7 +68,8 @@ struct ContentView: View {
             .onAppear{
                 //money.getFirebase()
             }
-        }//NavigationStack
+        }//NavigationView
+        .navigationViewStyle(StackNavigationViewStyle())
     }//body view
     
 }//struct view

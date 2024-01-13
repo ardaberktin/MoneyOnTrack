@@ -10,13 +10,14 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject var money: Money
+    @EnvironmentObject var moneyTrack: MoneyTrackData
     
     var body: some View {
         NavigationStack{
             VStack{
                 ScrollView{
                     VStack{
-                        Text("Monthly Spendings: $" + String(money.getTotalSpent()))
+                        Text("Monthly Spendings: $" + String(money.getExpenseTotal()))
                             .frame(maxWidth: .infinity,maxHeight:30, alignment: .leading)
                             .padding()
                             .font(.title.bold())
@@ -42,6 +43,7 @@ struct HomeView: View {
                 .refreshable {
                     // Your refresh logic here
                     money.getFirebase()
+                    moneyTrack.readFirebase()
                 }
                 .environmentObject(money)
             }

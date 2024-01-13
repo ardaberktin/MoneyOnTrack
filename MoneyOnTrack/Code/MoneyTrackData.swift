@@ -126,6 +126,23 @@ class MoneyTrackData: ObservableObject, Codable {
     }
     
     
+    func isAllAmountsEmpty() -> Bool{
+        
+        for d in data{
+            if(d.amount != 0.0){
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    
+    func removeDateAccount(_ date: Date) {
+            data.removeAll { $0.date == date }
+            writeFirebase()
+    }//removeCategory (also its amounts)
+    
     // Saved
     func removeAccount(_ account: String) {
             data.removeAll { $0.account == account }
@@ -175,16 +192,7 @@ class MoneyTrackData: ObservableObject, Codable {
         return convertedDate
     }//func
     
-    func isAllAmountsEmpty() -> Bool{
-        
-        for d in data{
-            if(d.amount != 0.0){
-                return false
-            }
-        }
-        
-        return true
-    }
+
     
     func readFirebase() {
             guard let user = Auth.auth().currentUser else {

@@ -36,9 +36,15 @@ struct Toolbar: ViewModifier {
                             Image(systemName: "plus.circle")
                         }
                     }//label
-                    .popover(isPresented: $isAddViewPresented) {
+                    .popover(isPresented: self.$isAddViewPresented,
+                             attachmentAnchor: .point(.bottom),
+                             arrowEdge: .top,
+                             content: {
                         AddView()
-                    }//popover
+                            .environmentObject(authenticationManager)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    })
+                    
                 }//ToolbarItem
             }//toolbar
         

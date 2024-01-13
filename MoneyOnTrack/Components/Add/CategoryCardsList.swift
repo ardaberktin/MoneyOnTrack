@@ -10,7 +10,7 @@ import SwiftUI
 struct CategoryCardsList: View {
     
     @EnvironmentObject var money: Money
-    @State private var gridcolumns = Array(repeating: GridItem(.flexible()), count: 2)
+    @State private var gridColumns = [GridItem(.adaptive(minimum: 150))]
     @Binding var isEditing: Bool  // Add binding for isEditing
     
     
@@ -18,7 +18,7 @@ struct CategoryCardsList: View {
     var sortedCategories: [String]
     
     var body: some View {
-        LazyVGrid(columns: gridcolumns, spacing: 25){
+        LazyVGrid(columns: gridColumns, spacing: 25){
             
             ForEach(sortedCategories, id: \.self) { category in
                 
@@ -52,10 +52,19 @@ struct CategoryCardsList: View {
             }//ForEach
         }//LazyVGrid
         .padding(.top)
-    }
-}
+        .onAppear {
+            // Check the horizontal size class to determine the device orientation
+            if UIDevice.current.orientation.isLandscape {
+                // Use a different set of columns for landscape orientation
+                gridColumns = [GridItem(.adaptive(minimum: 150), spacing: 25)]
+            }
+        }//Onappear
+        
+        
+    }//body
+}//strucy
 
 #Preview {
-    CategoryCardsList(isEditing: .constant(false), sortedCategories: ["Travel","Health"])  // Example usage, you can set isEditing accordingly
+    CategoryCardsList(isEditing: .constant(false), sortedCategories: ["Travel","Health", "Food"])  // Example usage, you can set isEditing accordingly
         .environmentObject(Money())
 }

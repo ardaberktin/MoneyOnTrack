@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MoneyTrackView: View {
     @EnvironmentObject var moneyTrack: MoneyTrackData
+    @EnvironmentObject var money: Money
 
     @State private var isAddCategoryPopoverPresented = false
     @State private var isRefreshing = false
@@ -33,11 +34,13 @@ struct MoneyTrackView: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 //.padding()
             }
-            //.MyToolbar()
+            .navigationTitle("Track")
+            .MyToolbar()
         }
         .refreshable {
             // Your refresh logic here
             moneyTrack.readFirebase()
+            money.getFirebase()
         }
         .environmentObject(moneyTrack)
     }

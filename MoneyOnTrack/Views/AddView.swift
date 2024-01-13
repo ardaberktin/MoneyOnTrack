@@ -52,11 +52,12 @@ struct AddView: View {
                     
                     VStack{
                         HStack{
-                            Text("Expense")
+                            Text("Expenses")
                             Text( "$" + String(money.getExpenseTotal()))
                             Button{
                                 //action
-                                withAnimation{                                isExpenseShowing.toggle()
+                                withAnimation{
+                                    isExpenseShowing.toggle()
                                 }
                             }label: {
                                 if(isExpenseShowing == true){

@@ -100,6 +100,20 @@ class Money: ObservableObject, Codable  /*,AuthenticationDelegate*/{
         return totals
     }//var
     
+    var totalBudgetsByCategory: [String: Double] {
+        var totals: [String: Double] = [:]
+
+        for dataPoint in data {
+            let category = dataPoint.category
+            let budget = dataPoint.budget
+
+            // Accumulate the total amount for each category
+            totals[category, default: 0.0] += budget
+        }//for
+
+        return totals
+    }//var
+    
     
     let authenticationManager = AuthenticationManager()
     //--------------------
@@ -222,11 +236,11 @@ class Money: ObservableObject, Codable  /*,AuthenticationDelegate*/{
          return uniqueCategories.count
      }// getNumCategories
     
-    func getTotalAmountsByCategory(category: String) -> Double{
+    func getTotalExpenseByCategory(category: String) -> Double{
         var total = 0.0
         
         for d in data{
-            if(d.category == category){
+            if(d.category == category && d.incomeOrExpense == "expense"){
                 total += d.amount
             }
         }
@@ -310,7 +324,7 @@ class Money: ObservableObject, Codable  /*,AuthenticationDelegate*/{
     }//removebudget
     
     func isOverBudget() -> String{
-        let spent = getTotalSpent()
+        let spent = getExpenseTotal()
         let budget = getTotalBudget()
         
         if(spent > budget && spent != 0.0 && budget != 0.0 ){
@@ -381,9 +395,7 @@ class Money: ObservableObject, Codable  /*,AuthenticationDelegate*/{
     
     
     func isEmpty() -> Bool {
-        let spent = getTotalSpent()
-        return spent == 0
-        
+        return getTotalSpent() == 0
      }//isEmpty
     
     

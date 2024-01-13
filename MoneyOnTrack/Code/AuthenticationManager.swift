@@ -27,7 +27,8 @@ class AuthenticationManager: ObservableObject{
     private(set) var canEvaluatePolicy = false
     
     //Safety
-    @Published private(set) var isAuthenticated = false //biometric authentication
+    //@Published private(set) var isAuthenticated = false //biometric authentication
+    @Published private(set) var isAuthenticated = true //DANGER DANGER DANGER
     @Published private(set) var isUserLoggedIn = false //credential authentication
     
     //Error
@@ -158,7 +159,7 @@ class AuthenticationManager: ObservableObject{
                     self.showAlert = true
                 case AuthErrorCode.userNotFound.rawValue:
                     self.alertTitle = "Error!"
-                    self.errorDescription = "User Not Founf"
+                    self.errorDescription = "User Not Found"
                     self.showAlert = true
                 case AuthErrorCode.accountExistsWithDifferentCredential.rawValue:
                     self.alertTitle = "Error!"
@@ -277,6 +278,9 @@ class AuthenticationManager: ObservableObject{
                 self.showAlert = true
             }
         }
+        
+        addUserInfoToFirebase()
+        
     }//signup
     
     func addUserInfoToFirebase(){

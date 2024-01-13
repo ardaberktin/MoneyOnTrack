@@ -26,7 +26,7 @@ struct NetWorthCard: View {
                     .fontWeight(.bold)
                     .foregroundColor(netWorth >= 0 ? .blue : .red)
                     .padding(.vertical, 8)
-            }
+            }//else
 
             HStack {
                 VStack {
@@ -36,7 +36,7 @@ struct NetWorthCard: View {
                     Text("$\(moneyTrack.getTotalAssets(), specifier: "%.2f")")
                         .font(.subheadline)
                         .foregroundColor(.green)
-                }
+                }//VStack
                 .padding()
 
                 Spacer()
@@ -53,16 +53,16 @@ struct NetWorthCard: View {
                         Text("-$\(moneyTrack.getTotalLiab(), specifier: "%.2f")")
                             .font(.subheadline)
                             .foregroundColor(.red)
-                    }
-                }
+                    }//else
+                }//VStack
                 .padding()
-            }
+            }//HStack
             .background(
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.gray.opacity(0.1))
             )
             .padding()
-        }
+        }//Vstack
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 15)
@@ -70,8 +70,8 @@ struct NetWorthCard: View {
                 .shadow(radius: 5)
         )
         .padding()
-    }
-}
+    }//body
+}//struct
 
 struct NetWorthCard_Previews: PreviewProvider {
     static var previews: some View {
