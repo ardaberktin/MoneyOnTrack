@@ -108,7 +108,7 @@ struct AccountDetailView: View {
             .navigationTitle(accountName)
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button(isEditing ? "Done" : "Edit"){
                         withAnimation {
                             isEditing.toggle()

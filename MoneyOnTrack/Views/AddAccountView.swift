@@ -97,7 +97,7 @@ struct AddAccountView: View {
                     }
                 }
             }
-            .navigationTitle("Category")
+            .navigationTitle("New Account")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

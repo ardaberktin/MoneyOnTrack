@@ -21,11 +21,11 @@ struct BudgetMarkCard: View {
                     .padding(.trailing, 2) // Add some trailing padding
                 
                 Text("/")
-                    .foregroundColor(.secondary) // Set the text color to the secondary color
+                    .foregroundColor(Color.gray) // Set the text color to the secondary color
                     .padding(.horizontal, 0) // Add horizontal padding
                 
                 Text("\(money.getTotalBudget(), specifier: "%.2f")")
-                    .foregroundColor(.secondary) // Set the text color to the primary color
+                    .foregroundColor(Color.gray) // Set the text color to the primary color
                     .padding(.leading, 0) // Add some leading padding
             }
             
