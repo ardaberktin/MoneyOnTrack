@@ -22,7 +22,7 @@ struct CategoryBudgetList: View {
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 
                 let sortedCategories = money.totalBudgetsByCategory
-                    .filter { $0.key != "" }
+                    .filter { $0.value != 0 }
                     .sorted { (category1, category2) in
                         let totalAmount1 = money.totalBudgetsByCategory[category1.key] ?? 0.0
                         let totalAmount2 = money.totalBudgetsByCategory[category2.key] ?? 0.0
@@ -46,7 +46,16 @@ struct CategoryBudgetList: View {
     }//body
 }//struct
 
-#Preview {
-    CategoryBudgetList()
-        .environmentObject(Money())
+struct CategoryBudgetList_Previews: PreviewProvider {
+    static var previews: some View {
+        let money = Money()
+
+        // Add some example data for preview
+        money.add(amount: 100, category: "Travel", date: Date.now, symbol: "bag", budget: 100, incomeOrExpense: "expense")
+        
+        money.add(amount: 100, category: "Health", date: Date.now, symbol: "bag", budget: 0, incomeOrExpense: "expense")
+
+        return CategoryBudgetList()
+            .environmentObject(money)
+    }
 }

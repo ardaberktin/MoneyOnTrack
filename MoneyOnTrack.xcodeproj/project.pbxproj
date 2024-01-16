@@ -131,6 +131,7 @@
 		04681E2E2B46134F00CF798C /* SFSymbolsPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 04681E2D2B46134F00CF798C /* SFSymbolsPicker */; };
 		04681E302B461F3800CF798C /* CategoryCardsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04681E2F2B461F3800CF798C /* CategoryCardsList.swift */; };
 		04681E322B465C9800CF798C /* OpenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04681E312B465C9800CF798C /* OpenAI.swift */; };
+		04DF09A52B5609570004AC46 /* TransactionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF09A42B5609570004AC46 /* TransactionsList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,6 +174,8 @@
 		04681E2F2B461F3800CF798C /* CategoryCardsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardsList.swift; sourceTree = "<group>"; };
 		04681E312B465C9800CF798C /* OpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAI.swift; sourceTree = "<group>"; };
 		04AE45302B560564008CF4AA /* ElegantCalendar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = ElegantCalendar.xcassets; path = "../../../Library/Developer/Xcode/DerivedData/MoneyOnTrack-bmeedpyjvjesdvdgsglxntqlfttw/SourcePackages/checkouts/ElegantCalendar/ElegantCalendar.xcassets"; sourceTree = "<group>"; };
+		04DF09A42B5609570004AC46 /* TransactionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsList.swift; sourceTree = "<group>"; };
+		04DF09A62B56304E0004AC46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +290,7 @@
 			children = (
 				04681DFB2B4612F700CF798C /* NetWorthCard.swift */,
 				04681DFA2B4612F700CF798C /* AccountList.swift */,
+				04DF09A42B5609570004AC46 /* TransactionsList.swift */,
 			);
 			path = TrackVIew;
 			sourceTree = "<group>";
@@ -340,6 +344,7 @@
 		04681D2F2B45817E00CF798C /* MoneyOnTrack */ = {
 			isa = PBXGroup;
 			children = (
+				04DF09A62B56304E0004AC46 /* Info.plist */,
 				04681D302B45817E00CF798C /* MoneyOnTrackApp.swift */,
 				04681D3E2B4581D600CF798C /* GoogleService-Info.plist */,
 				04681D4B2B45829000CF798C /* Code */,
@@ -596,6 +601,7 @@
 				04681D512B45829000CF798C /* MoneyTrackData.swift in Sources */,
 				04681E1F2B46130100CF798C /* CategoryDetailView.swift in Sources */,
 				04681E082B4612F700CF798C /* CategoryTransacList.swift in Sources */,
+				04DF09A52B5609570004AC46 /* TransactionsList.swift in Sources */,
 				043A41FC2B52BF1500BF5824 /* CategoryBudgetList.swift in Sources */,
 				04681E302B461F3800CF798C /* CategoryCardsList.swift in Sources */,
 				04681E292B46130100CF798C /* SignupView.swift in Sources */,
@@ -740,8 +746,10 @@
 				DEVELOPMENT_TEAM = GHCD4XURSN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoneyOnTrack/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Money On Track";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please authenticate using FaceID";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -771,8 +779,10 @@
 				DEVELOPMENT_TEAM = GHCD4XURSN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoneyOnTrack/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Money On Track";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please authenticate using FaceID";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

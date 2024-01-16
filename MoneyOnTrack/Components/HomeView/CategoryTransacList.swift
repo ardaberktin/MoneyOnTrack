@@ -73,7 +73,16 @@ struct CategoryTransacList: View {
     }//body
 }//struct
 
-#Preview {
-    CategoryTransacList()
-        .environmentObject(Money())
+struct CategoryTransacList_Previews: PreviewProvider {
+    static var previews: some View {
+        let money = Money()
+
+        // Add some example data for preview
+        money.add(amount: 100, category: "Travel", date: Date.now, symbol: "bag", budget: 100, incomeOrExpense: "expense")
+        
+        money.add(amount: 100, category: "Health", date: Date.now, symbol: "bag", budget: 100, incomeOrExpense: "expense")
+
+        return CategoryTransacList()
+            .environmentObject(money)
+    }
 }

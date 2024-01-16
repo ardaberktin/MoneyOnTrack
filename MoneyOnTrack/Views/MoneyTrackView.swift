@@ -54,10 +54,14 @@ struct AccountsView: View{
             Button(action: {
                 isAddCategoryPopoverPresented.toggle()
             }) {
-                Image(systemName: "plus.circle.fill")
-                    .resizable()
-                    .frame(width: 30, height: 30)
-                    .foregroundColor(.blue)
+                HStack{
+                    Text("Add Account")
+                    
+                    Image(systemName: "plus.circle.fill")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .foregroundColor(.blue)
+                }
             }//Button
             .padding()
             .popover(isPresented: $isAddCategoryPopoverPresented) {
@@ -73,7 +77,11 @@ struct AccountsView: View{
 
 struct TransactionView: View {
     var body: some View {
-        Text("Hi")
+        ScrollView{
+            Text("Hii")
+        }
+        .navigationTitle("Track")
+        .MyToolbar()
     }
 }
 

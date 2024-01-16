@@ -26,9 +26,9 @@ class AuthenticationManager: ObservableObject{
     @Published private(set) var biometryType: LABiometryType = .none
     private(set) var canEvaluatePolicy = false
     
-    //Safety
-    //@Published private(set) var isAuthenticated = false //biometric authentication
-    @Published private(set) var isAuthenticated = true //DANGER DANGER DANGER
+    //Security
+    @Published private(set) var isAuthenticated = false //biometric authentication
+    //@Published private(set) var isAuthenticated = true //DANGER DANGER DANGER
     @Published private(set) var isUserLoggedIn = false //credential authentication
     
     //Error
@@ -180,6 +180,7 @@ class AuthenticationManager: ObservableObject{
                 // Check if the user's email is verified
                 if let user = Auth.auth().currentUser, user.isEmailVerified {
                     self.isUserLoggedIn = true
+                    self.isAuthenticated = true
                     self.user = result?.user
                     print("Success, logged in via email and password")
                 } else {

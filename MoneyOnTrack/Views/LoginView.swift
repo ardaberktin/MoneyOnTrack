@@ -15,48 +15,57 @@ struct LoginView: View {
             LoginTitle()
                 .padding(.bottom, 70)
             
-            
-            switch
-            authenticationManager.biometryType{
-            case .faceID:
-                LoginButton(image: "faceid", text: "Unlock with FaceID")
-                .onTapGesture {
-                     Task.init {
-                          await authenticationManager.authenticateWithBiometrics()
-                      }
-                }
-                
+            if(authenticationManager.isUserLoggedIn){
+                switch
+                authenticationManager.biometryType{
+                case .faceID:
+                    LoginButton(image: "faceid", text: "Unlock with FaceID")
+                        .onTapGesture {
+                            Task.init {
+                                await authenticationManager.authenticateWithBiometrics()
+                            }
+                        }
+                    
+                    NavigationLink{
+                        LoginWCredentials()
+                            .environmentObject(authenticationManager)
+                    } label: {
+                        LoginButton(image: "person.fill", text: "Login with your credentials")
+                    }
+                    
+                case .touchID:
+                    LoginButton(image: "touchid", text: "Unlock with TouchID")
+                        .onTapGesture {
+                            Task.init {
+                                await authenticationManager.authenticateWithBiometrics()
+                            }
+                        }
+                    
+                    NavigationLink{
+                        LoginWCredentials()
+                            .environmentObject(authenticationManager)
+                    } label: {
+                        LoginButton(image: "person.fill", text: "Login with your credentials")
+                    }
+                    
+                default:
+                    NavigationLink{
+                        LoginWCredentials()
+                            .environmentObject(authenticationManager)
+                    } label: {
+                        LoginButton(image: "person.fill", text: "Login with your credentials")
+                    }
+                    
+                }//switch
+            }//if
+            else{
                 NavigationLink{
-                   LoginWCredentials()
+                    LoginWCredentials()
                         .environmentObject(authenticationManager)
                 } label: {
                     LoginButton(image: "person.fill", text: "Login with your credentials")
                 }
-                
-            case .touchID:
-                LoginButton(image: "touchid", text: "Unlock with TouchID")
-                .onTapGesture {
-                     Task.init {
-                          await authenticationManager.authenticateWithBiometrics()
-                      }
-                }
-                
-                NavigationLink{
-                   LoginWCredentials()
-                        .environmentObject(authenticationManager)
-                } label: {
-                    LoginButton(image: "person.fill", text: "Login with your credentials")
-                }
-                
-            default:
-                NavigationLink{
-                   LoginWCredentials()
-                        .environmentObject(authenticationManager)
-                } label: {
-                    LoginButton(image: "person.fill", text: "Login with your credentials")
-                }
-            
-            }//switch
+            }
             
         }//Vstack
         .frame(maxWidth: .infinity, maxHeight: .infinity)

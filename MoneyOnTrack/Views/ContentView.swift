@@ -67,6 +67,11 @@ struct ContentView: View {
             }//alert
             .onAppear{
                 //money.getFirebase()
+                if(authenticationManager.isUserLoggedIn){
+                    Task.init {
+                        await authenticationManager.authenticateWithBiometrics()
+                    }
+                }
             }
         }//NavigationView
         .navigationViewStyle(StackNavigationViewStyle())
