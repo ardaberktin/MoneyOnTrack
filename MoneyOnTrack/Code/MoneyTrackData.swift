@@ -162,6 +162,20 @@ class MoneyTrackData: ObservableObject, Codable {
     }// add
     
     
+    //NOT WORKINGGGGGGGGGG
+    func updateAccountAmount(account: String, newAmount: Double){
+        
+        for d in data{
+            
+            if(d.account == account){
+                
+                d.amount = newAmount
+                
+            }//if
+        }//for
+    }//func
+    
+    
     
     func convertDateToString(date: Date) -> String {
         // Create Date Formatter

@@ -172,6 +172,7 @@
 		04681E1C2B46130100CF798C /* AddAccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
 		04681E2F2B461F3800CF798C /* CategoryCardsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardsList.swift; sourceTree = "<group>"; };
 		04681E312B465C9800CF798C /* OpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAI.swift; sourceTree = "<group>"; };
+		04AE45302B560564008CF4AA /* ElegantCalendar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = ElegantCalendar.xcassets; path = "../../../Library/Developer/Xcode/DerivedData/MoneyOnTrack-bmeedpyjvjesdvdgsglxntqlfttw/SourcePackages/checkouts/ElegantCalendar/ElegantCalendar.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +323,7 @@
 		04681D242B45817E00CF798C = {
 			isa = PBXGroup;
 			children = (
+				04AE45302B560564008CF4AA /* ElegantCalendar.xcassets */,
 				04681D2F2B45817E00CF798C /* MoneyOnTrack */,
 				04681D2E2B45817E00CF798C /* Products */,
 			);

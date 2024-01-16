@@ -13,6 +13,7 @@ struct AccountDetailView: View {
     @EnvironmentObject var moneyTrack: MoneyTrackData
     @State private var isAlertPresented = false
     @State private var isEditing = false
+    @State private var newAccountAmount = ""
     
     var accountName: String
     
@@ -30,11 +31,27 @@ struct AccountDetailView: View {
         NavigationStack{
             ScrollView{
                 VStack{
-                    Text("Balance: $" + String(moneyTrack.getAccountBalance(account: accountName)))
-                        .font(.title2)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding()
-                }
+//                    if(!isEditing){
+                        Text("Balance: $" + String(moneyTrack.getAccountBalance(account: accountName)))
+                            .font(.title2)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding()
+//                    }else{
+//                        HStack{
+//                            Text("Balance: $")
+//                                .font(.title2)
+//                                
+//                            TextField(String(moneyTrack.getAccountBalance(account: accountName)), text: $newAccountAmount)
+//                                .font(.title2)
+//                            
+//                            //Image(systemName: "square.and.pencil")
+//                        
+//                        }
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                            .padding()
+//                    }
+                    
+                }//VStack
                 
                 
                 VStack{
@@ -112,6 +129,9 @@ struct AccountDetailView: View {
                     Button(isEditing ? "Done" : "Edit"){
                         withAnimation {
                             isEditing.toggle()
+//                            if(newAccountAmount != ""){
+//                                editAccountAmount(account: accountName)
+//                            }
                         }//withAnimation
                     }//Button
                 }//toolbaritem
@@ -148,7 +168,15 @@ struct AccountDetailView: View {
         
         
     }//body
-}
+    
+//    func editAccountAmount(account: String){
+//        
+//        let myAmount = (newAccountAmount as NSString).doubleValue
+//        
+//        moneyTrack.updateAccountAmount(account: accountName, newAmount: myAmount)
+//    }//func
+    
+}//struct
 
 struct AccountDetailView_Previews: PreviewProvider {
     static var previews: some View {

@@ -15,6 +15,36 @@ struct BudgetMarkData2: Identifiable{
     var category: String
     
 }//struct EmptyData
+struct CategoryOverBudgetBarMark: View {
+    
+    let category: String
+
+    var body: some View {
+        
+        let  arr1 = [
+            BudgetMarkData2(amount: 100, category: "Total")
+        ]
+        
+        Chart {
+            ForEach(arr1.sorted { $0.category == "Total" || $1.category == "" }) { d in
+                BarMark(
+                    x: .value("amount", d.amount)
+                )
+                .foregroundStyle(Color.red.opacity(1.1))
+            
+            }//ForEach
+            
+            
+        }//Chart
+        .clipShape(Capsule())
+        .frame(height: 15)
+        .cornerRadius(100.0)
+        .chartXAxis(.hidden)
+        //.foregroundStyle(tot > maxAmount ? Color.red: Color.clear)
+        .shadow(radius: 5)
+        
+    }//body
+}//struct
 
 struct CategoryBudgetBarMark: View {
     @EnvironmentObject var money: Money
@@ -26,18 +56,13 @@ struct CategoryBudgetBarMark: View {
         let maxAmount = money.getBudget(category: category)
         let emptyArea = maxAmount - tot
         
-        let  arr2 = [
+        let  arr = [
             BudgetMarkData2(amount: tot, category: "Total"),
             BudgetMarkData2(amount: emptyArea, category: "Left"),
         ]
-        
-        let  arr1 = [
-            BudgetMarkData2(amount: 100, category: "Total"),
-            BudgetMarkData2(amount: 500, category: "Left"),
-        ]
-        
+
         Chart {
-            ForEach(arr1.sorted { $0.category == "Total" || $1.category == "" }) { d in
+            ForEach(arr.sorted { $0.category == "Total" || $1.category == "" }) { d in
                 BarMark(
                     x: .value("amount", d.amount)
                 )
@@ -67,9 +92,10 @@ struct CategoryBudgets: View {
         VStack{
             
             VStack(alignment: .leading){
+                let left = money.getBudget(category: category) - money.getTotalExpenseByCategory(category: category)
+                let over = money.getTotalExpenseByCategory(category: category) - money.getBudget(category: category)
                 
                 HStack{
-                    let left = money.getBudget(category: category) - money.getTotalExpenseByCategory(category: category)
                     
                     Text(category)
                         .bold()
@@ -86,7 +112,7 @@ struct CategoryBudgets: View {
                         
                     }else{
                         
-                        let over = money.getTotalExpenseByCategory(category: category) - money.getBudget(category: category)
+                        
                         
                         Text("$\(over, specifier: "%.2f") over")
                             .bold()
@@ -99,8 +125,12 @@ struct CategoryBudgets: View {
                     
                 }//HStack
                 
-                CategoryBudgetBarMark(category: category)
-                    .environmentObject(money)
+                if(left > 0){
+                    CategoryBudgetBarMark(category: category)
+                        .environmentObject(money)
+                }else{
+                    CategoryOverBudgetBarMark(category: category)
+                }
                 
                 
                 

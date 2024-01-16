@@ -80,8 +80,17 @@ struct AccountList: View {
     }//body
 }//struct
 
-#Preview {
-    AccountList()
-        .environmentObject(MoneyTrackData())
+struct AccountList_Previews: PreviewProvider {
+    static var previews: some View {
+        let moneyTrackData = MoneyTrackData()
+
+        // Add some example data for preview
+        moneyTrackData.add(amount: 100.0, account: "TD Cash", date: Date(), symbol: "")
+        moneyTrackData.add(amount: -50.0, account: "RBC Cash", date: Date().addingTimeInterval(-86400), symbol: "") // 1 day ago
+        moneyTrackData.add(amount: 75.0, account: "RBC Cash", date: Date().addingTimeInterval(-172800), symbol: "") // 2 days ago
+
+        return AccountList()
+            .environmentObject(moneyTrackData)
+    }
 }
 
