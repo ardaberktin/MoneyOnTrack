@@ -12,12 +12,6 @@ import SwiftUI
 
 //source: https://www.youtube.com/watch?v=qW1wQwHmoTI
 
-
-//protocol AuthenticationDelegate: AnyObject {
-//    func didLogout()
-//    func didLogin()
-//}
-
 class AuthenticationManager: ObservableObject{
     //@EnvironmentObject var money: Money
     
@@ -28,8 +22,8 @@ class AuthenticationManager: ObservableObject{
     
     //Security
     @Published private(set) var isAuthenticated = false //biometric authentication
-    //@Published private(set) var isAuthenticated = true //DANGER DANGER DANGER
     @Published private(set) var isUserLoggedIn = false //credential authentication
+    @Published private(set) var isBiometricsOn = true //check if biometric authentication is turned on
     
     //Error
     @Published private(set) var errorDescription: String?
@@ -39,8 +33,7 @@ class AuthenticationManager: ObservableObject{
     //User
     @Published var user: User?
     @Published var username: String?
-    
-   // weak var delegate: AuthenticationDelegate?
+
     
     
     
@@ -49,6 +42,11 @@ class AuthenticationManager: ObservableObject{
         getBiometricType()
         checkAuthentication()
         getUserInfoFromFirebase()
+        
+        if(self.isBiometricsOn == false){
+            self.isAuthenticated = true
+        }//if
+        
     }//init
     
     func loadUser() {
@@ -123,24 +121,6 @@ class AuthenticationManager: ObservableObject{
         
         addUserInfoToFirebase()
     }
-
-//    func login(email: String, password: String){
-//        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-//            if error != nil {
-//                print(error?.localizedDescription ?? "")
-//                self.alertTitle = "Error!"
-//                self.errorDescription = "Wrong Credentials"
-//                self.showAlert = true
-//            } else {
-//                self.isAuthenticated = true
-//                self.user = result?.user
-//                print("success, logged in via email and password")
-//                
-//            }
-//        }
-//        
-//        //money.getFirebase()
-//    }//func login
     
     func login(email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
@@ -200,7 +180,17 @@ class AuthenticationManager: ObservableObject{
         }
     }
 
+    func enableBiometricAuth (){
+        self.isBiometricsOn = true
+        
+        addUserInfoToFirebase()
+    }
     
+    func disableBiometricAuth (){
+        self.isBiometricsOn = false
+        
+        addUserInfoToFirebase()
+    }
     
     func logout() {
         do {
@@ -212,22 +202,6 @@ class AuthenticationManager: ObservableObject{
             print("Error signing out: \(error.localizedDescription)")
         }
     }//logout
-    
-//    func signup(email: String, password: String){
-//        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-//            if error != nil{
-//                self.alertTitle = "Error!"
-//                self.errorDescription = "Failed to create an account. Please try again."
-//                self.showAlert = true
-//            }else{
-//                print("New Account Created")
-//                self.errorDescription = "Account created! Please login again."
-//                self.alertTitle = "Success!"
-//                self.showAlert = true
-//            }
-//        }//Auth
-//        
-//    }//signup
     
     func signup(email: String, password: String, username: String){
         
@@ -301,7 +275,7 @@ class AuthenticationManager: ObservableObject{
             // Save new data
                 let ref1 = userCollection.document("username")
                 
-            ref1.setData(["username": self.username ?? "No Name"]) { error in
+            ref1.setData(["username": self.username ?? "No Name", "isBiometricsOn": self.isBiometricsOn]) { error in
                     if let error = error {
                         print("Error setting document: \(error)")
                     }//if
@@ -315,6 +289,7 @@ class AuthenticationManager: ObservableObject{
         }
         
         self.username = ""
+        self.isBiometricsOn = true
         
         let db = Firestore.firestore()
         let userCollection = db.collection("UserData").document(user.uid).collection("UserInfo")
@@ -328,8 +303,12 @@ class AuthenticationManager: ObservableObject{
                 let docdata = document.data()
                 
                 let username = docdata["username"] as? String ?? ""
+                let isBiometricsOn = docdata["isBiometricsOn"] as? Bool ?? true
                 
                 self.username = username
+                self.isBiometricsOn = isBiometricsOn
+                
+                print("Bio:" + String(self.isBiometricsOn))
             
             }//for
         }//getDocuments

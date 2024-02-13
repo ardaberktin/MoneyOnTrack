@@ -66,13 +66,14 @@ struct ContentView: View {
                 )
             }//alert
             .onAppear{
-                //money.getFirebase()
-                if(authenticationManager.isUserLoggedIn){
+                if(authenticationManager.isUserLoggedIn && authenticationManager.isBiometricsOn){
+                    print(authenticationManager.isBiometricsOn)
                     Task.init {
                         await authenticationManager.authenticateWithBiometrics()
-                    }
-                }
-            }
+                    }//Task.init
+                }//if
+            }//onAppear
+            
         }//NavigationView
         .navigationViewStyle(StackNavigationViewStyle())
     }//body view
