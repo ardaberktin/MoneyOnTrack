@@ -25,7 +25,7 @@ struct MoneyTrackView: View {
                 AccountsView()
             }//if
             else{
-                TransactionView()
+                TransactionsListView()
             }
         }//NavStack
         .refreshable {
@@ -88,5 +88,8 @@ struct TransactionView: View {
 #Preview {
     MoneyTrackView()
         .environmentObject(MoneyTrackData())
+        .environmentObject(Money())
+
+    
 }
 

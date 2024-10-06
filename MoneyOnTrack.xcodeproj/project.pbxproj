@@ -132,6 +132,7 @@
 		04681E2E2B46134F00CF798C /* SFSymbolsPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 04681E2D2B46134F00CF798C /* SFSymbolsPicker */; };
 		04681E302B461F3800CF798C /* CategoryCardsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04681E2F2B461F3800CF798C /* CategoryCardsList.swift */; };
 		04681E322B465C9800CF798C /* OpenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04681E312B465C9800CF798C /* OpenAI.swift */; };
+		04BD61C62CB3169700A63930 /* TransactionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD61C52CB3169700A63930 /* TransactionsListView.swift */; };
 		04DF09A52B5609570004AC46 /* TransactionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF09A42B5609570004AC46 /* TransactionsList.swift */; };
 /* End PBXBuildFile section */
 
@@ -176,6 +177,7 @@
 		04681E2F2B461F3800CF798C /* CategoryCardsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardsList.swift; sourceTree = "<group>"; };
 		04681E312B465C9800CF798C /* OpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAI.swift; sourceTree = "<group>"; };
 		04AE45302B560564008CF4AA /* ElegantCalendar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = ElegantCalendar.xcassets; path = "../../../Library/Developer/Xcode/DerivedData/MoneyOnTrack-bmeedpyjvjesdvdgsglxntqlfttw/SourcePackages/checkouts/ElegantCalendar/ElegantCalendar.xcassets"; sourceTree = "<group>"; };
+		04BD61C52CB3169700A63930 /* TransactionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListView.swift; sourceTree = "<group>"; };
 		04DF09A42B5609570004AC46 /* TransactionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsList.swift; sourceTree = "<group>"; };
 		04DF09A62B56304E0004AC46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -410,6 +412,7 @@
 				04681E192B46130100CF798C /* AddDetailView.swift */,
 				04681E1C2B46130100CF798C /* AddAccountView.swift */,
 				04681E0E2B46130100CF798C /* AccountDetailView.swift */,
+				04BD61C52CB3169700A63930 /* TransactionsListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				04681E242B46130100CF798C /* HomeView.swift in Sources */,
 				04681E202B46130100CF798C /* LoginWCredentials.swift in Sources */,
 				04681D522B45829000CF798C /* UserInfo.swift in Sources */,
+				04BD61C62CB3169700A63930 /* TransactionsListView.swift in Sources */,
 				04681E0C2B4612F700CF798C /* CategoryCards.swift in Sources */,
 				04681E232B46130100CF798C /* LoginView.swift in Sources */,
 				043A41FA2B52AEF700BF5824 /* CategoryBudgets.swift in Sources */,
