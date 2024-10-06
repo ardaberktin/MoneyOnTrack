@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040251912C14DD6600FE3280 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040251902C14DD6600FE3280 /* ForgotPasswordView.swift */; };
 		043A41F82B52A5F600BF5824 /* BudgetMarkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A41F72B52A5F600BF5824 /* BudgetMarkCard.swift */; };
 		043A41FA2B52AEF700BF5824 /* CategoryBudgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A41F92B52AEF700BF5824 /* CategoryBudgets.swift */; };
 		043A41FC2B52BF1500BF5824 /* CategoryBudgetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A41FB2B52BF1500BF5824 /* CategoryBudgetList.swift */; };
@@ -135,6 +136,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040251902C14DD6600FE3280 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		043A41F72B52A5F600BF5824 /* BudgetMarkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetMarkCard.swift; sourceTree = "<group>"; };
 		043A41F92B52AEF700BF5824 /* CategoryBudgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBudgets.swift; sourceTree = "<group>"; };
 		043A41FB2B52BF1500BF5824 /* CategoryBudgetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBudgetList.swift; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 				04681E122B46130100CF798C /* ProfileView.swift */,
 				04681E142B46130100CF798C /* LoginView.swift */,
 				04681E112B46130100CF798C /* LoginWCredentials.swift */,
+				040251902C14DD6600FE3280 /* ForgotPasswordView.swift */,
 				04681E1A2B46130100CF798C /* SignupView.swift */,
 				04681E172B46130100CF798C /* CreateCategoryView.swift */,
 				04681E102B46130100CF798C /* CategoryDetailView.swift */,
@@ -609,6 +612,7 @@
 				04681D312B45817E00CF798C /* MoneyOnTrackApp.swift in Sources */,
 				04681E272B46130100CF798C /* BudgetView.swift in Sources */,
 				04681E212B46130100CF798C /* ProfileView.swift in Sources */,
+				040251912C14DD6600FE3280 /* ForgotPasswordView.swift in Sources */,
 				04681E042B4612F700CF798C /* AccountList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

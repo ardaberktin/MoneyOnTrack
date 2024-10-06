@@ -15,6 +15,8 @@ struct AddAccountView: View {
     @State private var selectedAccount: String = ""
     @State private var selectedAmount: String = ""
     @State private var selectedBudget: String = ""
+    @State private var selectedLimit: String = ""
+    @State private var selectedBalance: String = ""
     @State private var selectedCategoryType: String = "Debit"
     
     // SF Symbol picker
@@ -41,13 +43,13 @@ struct AddAccountView: View {
                         TextField("Amount", text: $selectedAmount)
                             .keyboardType(.decimalPad)
                     }else{
-                        TextField("Limit", text: $selectedAmount)
+                        TextField("Limit", text: $selectedLimit)
                             .keyboardType(.decimalPad)
                         
                         TextField("Owed", text: $selectedAmount)
                             .keyboardType(.decimalPad)
                         
-                        TextField("Balance", text: $selectedAmount)
+                        TextField("Balance", text: $selectedBalance)
                             .keyboardType(.decimalPad)
                         
                     }

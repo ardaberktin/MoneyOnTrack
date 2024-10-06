@@ -313,6 +313,31 @@ class AuthenticationManager: ObservableObject{
             }//for
         }//getDocuments
     }//getUserInfoFromFirebase
+    
+    // Forgot password method
+        func forgotPassword(email: String) {
+            Auth.auth().sendPasswordReset(withEmail: email) { error in
+                if let error = error {
+                    let err = error as NSError
+                    switch err.code {
+                    case AuthErrorCode.userNotFound.rawValue:
+                        self.alertTitle = "Error!"
+                        self.errorDescription = "User with this email not found."
+                    case AuthErrorCode.invalidEmail.rawValue:
+                        self.alertTitle = "Error!"
+                        self.errorDescription = "Invalid email address."
+                    default:
+                        self.alertTitle = "Error!"
+                        self.errorDescription = "Failed to send password reset email. Please try again."
+                    }
+                    self.showAlert = true
+                } else {
+                    self.alertTitle = "Success!"
+                    self.errorDescription = "Password reset email sent successfully. Please check your email."
+                    self.showAlert = true
+                }
+            }
+        }
 
     
 }//class AuthenticationManager

@@ -1,18 +1,16 @@
 //
-//  LoginWCredentials.swift
-//  Money on Track
+//  ForgotPasswordView.swift
+//  MoneyOnTrack
 //
-//  Created by Arda Berktin on 2023-12-25.
+//  Created by Arda Berktin on 2024-06-08.
 //
 
 import SwiftUI
 
-struct LoginWCredentials: View {
+struct ForgotPasswordView: View {
     @EnvironmentObject var authenticationManager: AuthenticationManager
     @EnvironmentObject var money: Money
     @State private var email = ""
-    @State private var name = ""
-    @State private var password = ""
     
     var body: some View {
         VStack(spacing: 30) {
@@ -21,46 +19,34 @@ struct LoginWCredentials: View {
                 .font(.title)
                 .foregroundStyle(.white)
             
+            Text("Reset Password")
+                .bold()
+                .font(.title3)
+                .foregroundStyle(.white)
+            
             TextField("Email", text: $email)
                 .disableAutocorrection(true)
                 .autocapitalization(.none)
-            
-            SecureField("Password", text: $password)
-                .disableAutocorrection(true)
-                .autocapitalization(.none)
-            
+         
                 
-            LoginButton(text: "Login")
+            LoginButton(text: "Send Reset Email ")
                 .onTapGesture {
-                    authenticationManager.login(email: email, password: password)
+                    authenticationManager.forgotPassword(email: email)
                     money.getFirebase()
                 }
-                
             
             NavigationLink{
-               SignupView()
-                    .environmentObject(authenticationManager)
-            } label: {
-                LoginButton(image: "person.badge.plus", text: "Sign Up")
-            }
-            
-            if(authenticationManager.isUserFound()){
-                Button("Resend Verification Email") {
-                    authenticationManager.resendVerificationEmail()
-                }
-            }//if
-            
-            NavigationLink{
-                ForgotPasswordView()
+                LoginWCredentials()
                     .environmentObject(authenticationManager)
                 
             }label: {
-                Text("Forgot your password? ")
+                Text("Remember your password? ")
                     .foregroundStyle(.white)
-                Text("Reset your password")
+                Text("Log in")
                     .foregroundStyle(.white)
                     .underline()
             }
+          
             
         }//Vstack
         .textFieldStyle(.roundedBorder)
@@ -72,10 +58,9 @@ struct LoginWCredentials: View {
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         
     }//body view
-    
-}//struct view
+}
 
 #Preview {
-    LoginWCredentials()
+    ForgotPasswordView()
         .environmentObject(AuthenticationManager())
 }

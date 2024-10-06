@@ -7,7 +7,7 @@ class MoneyTrackDataPoint: Identifiable, Hashable, Codable, Equatable {
     var amount: Double
     var date: Date
     var symbol: String
-
+    
     init(amount: Double, account: String, id: String = UUID().uuidString, date: Date, symbol: String) {
         self.id = id
         self.amount = amount
@@ -98,7 +98,7 @@ class MoneyTrackData: ObservableObject, Codable {
         var total = 0.0
         
         for d in data{
-            if(d.amount > 0 && d.account != ""){
+            if(d.amount > 0 /*&& d.account != ""*/){
                 total += d.amount
             }
         }
@@ -110,7 +110,7 @@ class MoneyTrackData: ObservableObject, Codable {
         var total = 0.0
         
         for d in data{
-            if(d.amount < 0 && d.account != ""){
+            if(d.amount < 0 /*&& d.account != ""*/){
                 total += d.amount
             }
         }
