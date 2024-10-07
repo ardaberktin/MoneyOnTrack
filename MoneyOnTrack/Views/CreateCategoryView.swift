@@ -16,10 +16,16 @@ struct CreateCategoryView: View {
     @State private var selectedAmount: String = ""
     @State private var selectedBudget: String = ""
     @State private var selectedCategoryType: String = "Expense"
+   @State private var selectedDate: Date = Date()
+    //recurring options
+    @State private var isRecurring: Bool = false
+    @State private var recurrenceFrequency: String = "None"
     
     // SF Symbol picker
     @State private var isPresented = false
     @State private var icon = "bag.fill"
+    
+    var recurrenceOptions = ["None", "Daily", "Weekly", "Monthly"]
     
     var body: some View {
         NavigationStack {
@@ -46,6 +52,19 @@ struct CreateCategoryView: View {
                             .keyboardType(.decimalPad)
                     }
                 }
+                Section(header: Text("Date & Recurrence")) {
+                                 DatePicker("Select Date", selection: $selectedDate, displayedComponents: .date)
+                                 
+                                 Toggle("Recurring", isOn: $isRecurring)
+                                 
+                                 if isRecurring {
+                                     Picker("Recurrence Frequency", selection: $recurrenceFrequency) {
+                                         ForEach(recurrenceOptions, id: \.self) { option in
+                                             Text(option).tag(option)
+                                         }
+                                     }
+                                 }
+                             }
                 
                 Section {
                     HStack {

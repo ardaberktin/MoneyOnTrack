@@ -66,6 +66,8 @@ struct TransactionsListView: View {
                 .padding()
             }
             .navigationTitle("All Transactions") // Update title to reflect no specific category
+            .MyToolbar()
+
         }
     }
 }

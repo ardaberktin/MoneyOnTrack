@@ -11,10 +11,10 @@
 		043A41F82B52A5F600BF5824 /* BudgetMarkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A41F72B52A5F600BF5824 /* BudgetMarkCard.swift */; };
 		043A41FA2B52AEF700BF5824 /* CategoryBudgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A41F92B52AEF700BF5824 /* CategoryBudgets.swift */; };
 		043A41FC2B52BF1500BF5824 /* CategoryBudgetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A41FB2B52BF1500BF5824 /* CategoryBudgetList.swift */; };
+		045E95C82CB366F900730D03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 045E95C72CB366F900730D03 /* GoogleService-Info.plist */; };
 		04681D312B45817E00CF798C /* MoneyOnTrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04681D302B45817E00CF798C /* MoneyOnTrackApp.swift */; };
 		04681D352B45817F00CF798C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04681D342B45817F00CF798C /* Assets.xcassets */; };
 		04681D382B45817F00CF798C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04681D372B45817F00CF798C /* Preview Assets.xcassets */; };
-		04681D3F2B4581D600CF798C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04681D3E2B4581D600CF798C /* GoogleService-Info.plist */; };
 		04681D422B45821700CF798C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 04681D412B45821700CF798C /* FirebaseAnalytics */; };
 		04681D442B45821700CF798C /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 04681D432B45821700CF798C /* FirebaseAnalyticsOnDeviceConversion */; };
 		04681D462B45821700CF798C /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 04681D452B45821700CF798C /* FirebaseAnalyticsSwift */; };
@@ -141,11 +141,11 @@
 		043A41F72B52A5F600BF5824 /* BudgetMarkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetMarkCard.swift; sourceTree = "<group>"; };
 		043A41F92B52AEF700BF5824 /* CategoryBudgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBudgets.swift; sourceTree = "<group>"; };
 		043A41FB2B52BF1500BF5824 /* CategoryBudgetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBudgetList.swift; sourceTree = "<group>"; };
+		045E95C72CB366F900730D03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04681D2D2B45817E00CF798C /* MoneyOnTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyOnTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04681D302B45817E00CF798C /* MoneyOnTrackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyOnTrackApp.swift; sourceTree = "<group>"; };
 		04681D342B45817F00CF798C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04681D372B45817F00CF798C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		04681D3E2B4581D600CF798C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04681D4C2B45829000CF798C /* MoneyTrackData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyTrackData.swift; sourceTree = "<group>"; };
 		04681D4D2B45829000CF798C /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		04681D4F2B45829000CF798C /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
@@ -350,7 +350,7 @@
 			children = (
 				04DF09A62B56304E0004AC46 /* Info.plist */,
 				04681D302B45817E00CF798C /* MoneyOnTrackApp.swift */,
-				04681D3E2B4581D600CF798C /* GoogleService-Info.plist */,
+				045E95C72CB366F900730D03 /* GoogleService-Info.plist */,
 				04681D4B2B45829000CF798C /* Code */,
 				04681E0D2B46130100CF798C /* Views */,
 				04681DF82B4612F700CF798C /* Components */,
@@ -568,8 +568,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045E95C82CB366F900730D03 /* GoogleService-Info.plist in Resources */,
 				04681D382B45817F00CF798C /* Preview Assets.xcassets in Resources */,
-				04681D3F2B4581D600CF798C /* GoogleService-Info.plist in Resources */,
 				04681D352B45817F00CF798C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
